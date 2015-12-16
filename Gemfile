@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Shoppe for backend
 gem 'shoppe', '~> 1.0'
 
+# Stripe for payments
+gem "shoppe-stripe", require: "shoppe/stripe"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

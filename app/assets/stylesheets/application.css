@@ -12,6 +12,7 @@
  *
  *= require 'materialize.min'
  *= require 'welcome'
+ *= require 'orders'
  *= require_self
  */
 
@@ -46,5 +47,14 @@
 
 .footer {
 	margin-top: 2.5em;
+}
+
+.background-black {
+	background-color: black;
+}
+
+#flash {
+	background-color: yellow;
+	text-align: center;
 }
 

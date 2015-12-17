@@ -1,0 +1,12 @@
+.background-white {
+	background-color: white;
+}
+
+.empty-basket {
+	float: right;
+	font-size: 0.5em;
+}
+
+.center {
+	text-align: center;
+}

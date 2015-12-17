@@ -16,54 +16,49 @@
 	<!-- Navbar -->
   <nav class="black">
     <div class="nav-wrapper">
-      <a href="/products" class="brand-logo"><img id="maurel-logo" src="/assets/maurel-logo.png"/></a><!-- <span id="tagline">Italian Couture for the Hospitality Industry</span> -->
+      <a href="http://localhost:3000" class="brand-logo"><img id="maurel-logo" src="/assets/maurel-logo.png"/></a><!-- <span id="tagline">Italian Couture for the Hospitality Industry</span> -->
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
       <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Products</a></li>
+        <li><a href="/products">Products</a></li>
         <li><a href="badges.html">Our Process</a></li>
         <li><a href="collapsible.html">Clients</a></li>
         <li><a href="mobile.html">Press</a></li>
-        <li><a href="sass.html">
+        <li><a href="/basket">
         	<i class="large material-icons">shopping_cart</i>
         </a></li>
-        <li>
+        <li style="padding-right:2em;">
+        	<!-- Show shopping cart total price -->
         	<% if current_order %>
-
-		  <%= number_to_currency current_order.total_before_tax %>
-		  <% end %>
+				<%= number_to_currency current_order.total_before_tax %>
+			<% end %>
 		</li>
 	
         </li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="badges.html">Our Process</a></li>
+        <li><a href="collapsible.html">Clients</a></li>
+        <li><a href="mobile.html">Press</a></li>
+        <li><a href="/basket">
+        	<i class="large material-icons">shopping_cart</i>
+
+        	<!-- Show shopping cart total price -->
+        	<% if current_order %>
+			<span style="color:black;"><%= number_to_currency current_order.total_before_tax %></span>
+			<% end %>
+			
+        </a></li>
       </ul>
       
     </div>
   </nav>
-
-
+<div id="flash">
+	<%= flash[:notice] %>
+</div>
 
 <%= yield %>
-
-	<!-- Display Basket Box -->
-	<% if current_order %>
-		<p style="border:1px solid black;padding:10px;">
-		  You have <%= pluralize current_order.total_items, 'item'%> in your basket which cost
-		  <%= number_to_currency current_order.total_before_tax %>.
-		</p>
-	<% end %>
-
-	<!-- View Basket -->
-	<%= link_to "View basket", basket_path %>
-	<%= flash[:notice] %>
-
-	<!-- Checkout Basket -->
-	<%= link_to "Checkout", checkout_path %>
 
 
 	<!-- Footer -->
@@ -82,12 +77,13 @@
 					Pec: maurel@legalmail.it 
 
 					<!-- Facebook -->
-		<!-- 			<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-width="300" data-action="like" data-show-faces="true" data-share="false"></div><br /> -->
+					<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-width="300" data-action="like" data-show-faces="true" data-share="false"></div><br />
+
 					<!-- Twitter -->
-				<!-- 	<a class="twitter-follow-button"
+			<!-- 		<a class="twitter-follow-button"
 					  href="https://twitter.com/MaurelItalia"
-					  data-size="large"> -->
-					<!-- Follow @TwitterDev</a> -->
+					  data-size="small">
+					Follow @TwitterDev</a> -->
 
 					<!-- VAT 02036710180 <br />
 					REA PV-240504 <br />
@@ -101,7 +97,7 @@
               </div>
 			   <ul>
 			   <div class="col l3 offset-l2 s12 footer">
-			   	  <li class="grey-text text-lighten-4">Sales Dept 
+			   	  <li class="grey-text text-lighten-4">Sales  
 			   	  <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" style="height:10px; width:auto;" />
                   <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/300px-Flag_of_the_United_Kingdom.svg.png" style="height:10px; width:auto;" />
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Civil_and_Naval_Ensign_of_France.svg/2000px-Civil_and_Naval_Ensign_of_France.svg.png" style="height:10px; width:auto;" />

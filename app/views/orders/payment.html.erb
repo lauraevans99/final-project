@@ -1,30 +1,48 @@
 <%= shoppe_stripe_javascript %>
-
-<h2>Make your payment</h2>
+<h4 class="center" style="background-color:orange;margin-top:0;padding:1em;" >PAYMENT</h4>
+<div class="container center ">
 
 <%= form_tag nil, class: "stripeForm" do %>
   <%= hidden_field_tag "stripe_token", nil, "data-stripe" => "token" %>
   <dl>
-    <dt><%= label_tag 'card_number' %></dt>
-    <dd><%= text_field_tag 'card_number', nil, name: nil, "data-stripe" => "number" %></dd>
-    <dt><%= label_tag 'expiry_month' %></dt>
-    <dd><%= text_field_tag 'expiry_month', nil, name: nil, "data-stripe" => "exp_month" %></dd>
-    <dt><%= label_tag 'expiry_year' %></dt>
-    <dd><%= text_field_tag 'expiry_year', nil, name: nil, "data-stripe" => "exp_year" %></dd>
-    <dt><%= label_tag 'security_code' %></dt>
-    <dd><%= text_field_tag 'security_code', nil, name: nil, "data-stripe" => "cvc" %></dd>
+
+    <div class="row ">
+    <div class="input-field col s6 push-s3">
+    <%= label_tag 'card_number' %>
+    <%= text_field_tag 'card_number', nil, name: nil, "data-stripe" => "number" %>
+    </div>
+    </div>
+
+    <div class="row ">
+    <div class="input-field col s2 offset-s3">
+    <%= label_tag 'expiry_month' %>
+    <%= text_field_tag 'expiry_month', nil, name: nil, "data-stripe" => "exp_month" %>
+    </div>
+
+    <div class="input-field col s2">
+    <%= label_tag 'expiry_year' %>
+    <%= text_field_tag 'expiry_year', nil, name: nil, "data-stripe" => "exp_year" %>
+    </div>
+
+    <div class="input-field col s2">
+    <%= label_tag 'security_code' %>
+    <%= text_field_tag 'security_code', nil, name: nil, "data-stripe" => "cvc" %>
+    </div>
+    </div>
 
     <dd><%= hidden_field_tag 'address_line1', nil, name: nil, :value => @order.billing_address1, "data-stripe" => "address_line1" %></dd>
-    <dd><%= hidden_field_tag 'name', nil, name: nil, :value => @order.first_name + " " + @order.last_name, "data-stripe" => "name" %></dd>
+    <dd><%= hidden_field_tag 'name', nil, name: nil, :value => @order.last_name, "data-stripe" => "name" %></dd>
     <dd><%= hidden_field_tag 'address_city', nil, name: nil, :value => @order.billing_address3, "data-stripe" => "address_city" %></dd>
     <dd><%= hidden_field_tag 'address_country', nil, name: nil, :value => @order.billing_country_id, "data-stripe" => "address_country" %></dd>
 	<dd><%= hidden_field_tag 'address_state', nil, name: nil, :value => @order.billing_address4, "data-stripe" => "address_state" %></dd>
 	<dd><%= hidden_field_tag 'address_zip', nil, name: nil, :value => @order.billing_postcode, "data-stripe" => "address_zip" %></dd>
 	<dd><%= hidden_field_tag 'address_line2', nil, name: nil, :value => @order.billing_address2, "data-stripe" => "address_line2" %></dd>
+    <dd><%= hidden_field_tag 'currency', nil, name: nil, :value => "usd", "data-stripe" => "currency" %></dd>
 
 	
 
 
-    <dd><%= submit_tag "Continue" %></dd>
+    <div class="center"><%= submit_tag "Continue" %></div>
   </dl>
 <% end %>
+</div>

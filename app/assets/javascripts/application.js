@@ -17,10 +17,15 @@
 //= require typed.min.js
 //= require turbolinks
 //= require "welcome"
+//= require "orders"
 //= require_tree .
 
 $(document).ready(function(){
 	$(".button-collapse").sideNav();
+
+	setTimeout(function(){
+    $('#flash').remove();
+  }, 5000);
 });
 
 // Facebook widget

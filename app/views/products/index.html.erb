@@ -1,14 +1,30 @@
-<h2>Products</h2>
+<h4 class="center" style="background-color:orange;margin-top:0;padding:1em;" >PRODUCTS</h4>
+<div class="container">
+  <div class="row ">
 
 <% @products.each do |category, products| %>
-  <h3><%= category.name %></h3>
-  <ul>
-    <% products.each do |product| %>
-    <li>
-      <h4><%= link_to product.name, product_path(product.permalink) %></h4>
+<% products.each do |product| %>
+  <div class="col s6">
+    <div class="card small">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="/assets/maurel-img7.jpg" >
+    </div>
+    <div class="card-content ">
+      <span class="card-title activator grey-text text-darken-4"><span class="card-title"><%= product.name %>-</span> <%= number_to_currency product.price %><i class="material-icons right">more_vert</i></span>
       <p><%= product.short_description %></p>
-      <p><b>Price:</b> <%= number_to_currency product.price %></p>
-    </li>
-    <% end %>
-  </ul>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><%= product.name %><i class="material-icons right">close</i></span>
+      <p> <%= link_to "Add to basket", product_path(product.permalink), :method => :post %>
+      <br/> <%= product.description %>
+      </p>
+    </div>
+  </div>
+  </div>
+
 <% end %>
+<% end %>
+
+</div>
+</div>
+

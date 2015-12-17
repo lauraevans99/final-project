@@ -1,6 +1,7 @@
+
 <table width='100%' border='1'>
   <thead>
-    <tr>
+    <tr class="deep-purple lighten-1">
       <td>Quantity</td>
       <td>Product</td>
       <td>Sub-Total</td>
@@ -8,7 +9,7 @@
       <td>Total</td>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="grey lighten-4">
     <% order.order_items.each do |item| %>
     <tr>
       <td><%= item.quantity %></td>
@@ -30,7 +31,7 @@
     <% end %>
 
   </tbody>
-  <tfoot>
+  <tfoot class="grey lighten-4">
     <tr>
       <td colspan='4'>Sub-Total</td>
       <td><%= number_to_currency order.total_before_tax %></td>

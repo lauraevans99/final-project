@@ -1,4 +1,28 @@
-<h2>Your basket</h2>
+<h4 class="center" style="background-color:orange;margin-top:0;padding:1em;" >MY SHOPPING CART</h4>
+<div class="container">
+
+	
+<!-- Hover Edit Icons -->
+  <div class="fixed-action-btn vertical" style="top: 5em; right: 1em;">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a type="submit" formmethod="delete" class="btn-floating red" href="/basket"><i class="material-icons">delete</i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
+
+
+	<span class="empty-basket"><%= link_to 'Empty basket', basket_path, :method => :delete %></span>
+
+
 <%= render 'items', :order => current_order %>
 
-<p><%= link_to 'Empty basket', basket_path, :method => :delete %></p>
+<div class="center">
+<a href="<%= checkout_path %>" class="waves-effect waves-light btn-large">CHECKOUT</a>
+</div>
+
+</div>

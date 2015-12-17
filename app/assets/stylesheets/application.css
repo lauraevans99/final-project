@@ -10,6 +10,41 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require 'materialize.min'
+ *= require 'welcome'
  *= require_self
  */
+
+ @font-face {
+    font-family: 'roboto';
+    src:url('roboto/Roboto-Regular.ttf') format('truetype'),
+        url('roboto/Roboto-Regular.woff') format('woff'),
+        url('roboto/Roboto-Light.ttf') format('truetype'),
+        url('roboto/Roboto-Light.woff') format('woff'),
+        url('roboto/Roboto-Light.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+#maurel-logo {
+	width:4em;
+	height:auto
+}
+
+.brand-logo {
+	margin-left: 1em;
+}
+
+.facebook {
+	padding-right: 1em;
+}
+
+#tagline {
+	float: left;
+	padding-left: 12em;
+	color: #cc9900;
+}
+
+.footer {
+	margin-top: 2.5em;
+}
+

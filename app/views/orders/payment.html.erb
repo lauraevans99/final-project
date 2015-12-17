@@ -13,6 +13,18 @@
     <dd><%= text_field_tag 'expiry_year', nil, name: nil, "data-stripe" => "exp_year" %></dd>
     <dt><%= label_tag 'security_code' %></dt>
     <dd><%= text_field_tag 'security_code', nil, name: nil, "data-stripe" => "cvc" %></dd>
+
+    <dd><%= hidden_field_tag 'address_line1', nil, name: nil, :value => @order.billing_address1, "data-stripe" => "address_line1" %></dd>
+    <dd><%= hidden_field_tag 'name', nil, name: nil, :value => @order.first_name + " " + @order.last_name, "data-stripe" => "name" %></dd>
+    <dd><%= hidden_field_tag 'address_city', nil, name: nil, :value => @order.billing_address3, "data-stripe" => "address_city" %></dd>
+    <dd><%= hidden_field_tag 'address_country', nil, name: nil, :value => @order.billing_country_id, "data-stripe" => "address_country" %></dd>
+	<dd><%= hidden_field_tag 'address_state', nil, name: nil, :value => @order.billing_address4, "data-stripe" => "address_state" %></dd>
+	<dd><%= hidden_field_tag 'address_zip', nil, name: nil, :value => @order.billing_postcode, "data-stripe" => "address_zip" %></dd>
+	<dd><%= hidden_field_tag 'address_line2', nil, name: nil, :value => @order.billing_address2, "data-stripe" => "address_line2" %></dd>
+
+	
+
+
     <dd><%= submit_tag "Continue" %></dd>
   </dl>
 <% end %>
